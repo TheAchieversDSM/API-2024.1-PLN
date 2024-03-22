@@ -12,7 +12,7 @@
  
  
  <h3>:gear: Execução do Sistema</h3>
- <p>Para rodar o projeto localmente, siga estes passos:</p>
+ <p>Para rodar o projeto localmente, certifique-se que tenha o <a href="https://www.python.org/downloads/">Python</a> instalado e siga estes passos:</p>
 
 ```bash 
 # Baixe o repositório ou clone usando o comando:
