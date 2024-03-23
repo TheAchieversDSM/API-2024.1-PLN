@@ -1,7 +1,7 @@
 <br id="inicio">
 
 <h1 align="center">API 2024.1 - The Achievers & Dom Rock</h1>
-<h3 align="center">Repositório destinado aos códigos de Processamento de Linguage Natural</h2>
+<h3 align="center">Repositório destinado aos códigos de Processamento de Linguagem Natural</h2>
 
  <span id="techtools">
  <h3>:hammer_and_wrench: Ferramentas e Tecnologias</h3>
