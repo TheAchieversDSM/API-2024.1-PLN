@@ -10,10 +10,13 @@
         "revealProblems": "onProblem",
         "close": true
       },
-      "options": {
-        "cwd": "${workspaceFolder}",
-        "env": {
-          "PYTHONUNBUFFERED": "1"
+      "windows": {
+        "command": ".\\.venv\\Scripts\\Activate.ps1; python -m pip install -r .\\requirements.txt",
+        "options": {
+          "cwd": "${workspaceFolder}",
+          "env": {
+            "PYTHONUNBUFFERED": "1"
+          }
         }
       },
       "group": {

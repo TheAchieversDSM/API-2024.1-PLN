@@ -5,9 +5,18 @@
       "name": "API: PLN",
       "type": "python",
       "request": "launch",
-      "program": "src/main.py",
+      "module": "uvicorn",
+      "args": [
+        "src.main:app",
+        "--reload",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000"
+      ],
+      "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
-      "console": "integratedTerminal"
+      "preLaunchTask": "pln-fatec"
     }
   ]
 }
