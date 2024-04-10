@@ -3,3 +3,5 @@ uvicorn
 python-dotenv==1.0.0
 pydantic
 pydantic-settings
+python-multipart
+pandas
