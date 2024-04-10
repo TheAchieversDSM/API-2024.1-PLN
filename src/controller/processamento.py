@@ -1,6 +1,9 @@
+from typing import List
 from fastapi import UploadFile
 import pandas as pd
-from ..utils.timer import timing  # Assuming this imports correctly
+
+from ..services.stopwords import StopWordsClear
+from ..utils.timer import timing
 from io import StringIO
 from contextlib import redirect_stdout
 
@@ -17,6 +20,14 @@ class Processamento:
         df = df.dropna(subset=["review_text"])
         return df
 
+    @timing
+    def __remove_stop_words(self, reviews: List[str]) -> List[str]:
+        stopword = StopWordsClear(reviews)
+        process = stopword.preprocess_text()
+        return process
+
     def process_data(self):
         df, timer = self.__clear_data()
-        return timer
+        reviews, timer = self.__remove_stop_words(df["review_text"])
+
+        return reviews
