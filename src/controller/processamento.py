@@ -2,6 +2,7 @@ from typing import List
 from fastapi import UploadFile
 import pandas as pd
 
+from ..services.word_expansion import WordAbbreviationExpand
 from ..services.stopwords import StopWordsClear
 from ..utils.timer import timing
 from io import StringIO
@@ -26,8 +27,14 @@ class Processamento:
         process = stopword.preprocess_text()
         return process
 
+    @timing
+    def __expanded_abreviatio(self, reviews: List[str]):
+        word_Abbreviation = WordAbbreviationExpand(reviews)
+        process = word_Abbreviation.preprocess_text()
+        return process
+
     def process_data(self):
         df, timer = self.__clear_data()
         reviews, timer = self.__remove_stop_words(df["review_text"])
-
-        return reviews
+        expanded, timer = self.__expanded_abreviatio(reviews)
+        return expanded
