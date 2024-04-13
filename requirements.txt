@@ -7,3 +7,5 @@ python-multipart
 pandas
 nltk
 unidecode
+stanza
+pyspellchecker==0.5.*
