@@ -2,6 +2,7 @@ from typing import List
 import pandas as pd
 
 from src.services.correcting_word import WordCorrecting
+from src.services.document_similarity import DocumentSimilarity
 from src.services.hot_topics import IdentifyHotTopicList
 
 from .lemma import WordLemmatizer
@@ -44,10 +45,25 @@ class Processamento:
         process = ranking_words.identify_hot_topics()
         return process
 
-    def process_data_hot_topics(self):
+    @timing
+    def __document_similarity(self, reviews: List[str]):
+        document_similarity = DocumentSimilarity(reviews)
+        process = document_similarity.gerar_cluster_documentos()
+        return process
+
+    @timing
+    def process_data_hot_topics(self, reviews: List[str]):
         reviews, _ = self.__remove_stop_words(self.__csv)
         expanded, _ = self.__expanded_abreviatio(reviews)
         corrects, _ = self.__correcting_words(expanded)
         lemmatizer, _ = self.__lemmatize_words(corrects)
         ranking, _ = self.__ranking_words(lemmatizer)
         return ranking
+
+    def process_data_document_similarity(self):
+        reviews, _ = self.__remove_stop_words(self.__csv)
+        expanded, _ = self.__expanded_abreviatio(reviews)
+        corrects, _ = self.__correcting_words(expanded)
+        lemmatizer, _ = self.__lemmatize_words(corrects)
+        similarity, _ = self.__document_similarity(lemmatizer)
+        return similarity
