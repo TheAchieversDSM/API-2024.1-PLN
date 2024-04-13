@@ -18,9 +18,9 @@ class WordLemmatizer:
         for sent in doc.sentences:
             for word in sent.words:
                 lemmas.append(word.lemma)
-        return lemmas
+        return " ".join(lemmas)
 
-    def preprocess_text(self) -> List[List[str]]:
+    def preprocess_text(self) -> List[str]:
         processed_texts = []
         for review in self.__reviews:
             processed_review = self.lemmatize_words(review, self.npl)
