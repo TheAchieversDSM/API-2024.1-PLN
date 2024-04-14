@@ -52,7 +52,7 @@ class Processamento:
         return process
 
     @timing
-    def process_data_hot_topics(self, reviews: List[str]):
+    def process_data_hot_topics(self):
         reviews, _ = self.__remove_stop_words(self.__csv)
         expanded, _ = self.__expanded_abreviatio(reviews)
         corrects, _ = self.__correcting_words(expanded)
