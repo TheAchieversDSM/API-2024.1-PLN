@@ -11,7 +11,7 @@ class StopWordsClear:
 
     @staticmethod
     def remove_duplicate_characters(text: str) -> str:
-        character_repeat = re.compile(r"(\w)(\1+)")
+        character_repeat =  re.compile(r'(\w*)(\w)\2(\w*)')
         match_substitution = r"\1"
 
         def replace_repeated_chars(old_word):
@@ -21,7 +21,7 @@ class StopWordsClear:
                 new_word = character_repeat.sub(match_substitution, old_word)
             return new_word
 
-        return replace_repeated_chars(text)
+        return " ".join(replace_repeated_chars(word) if word.isalpha() else word for word in text.split())
 
     @staticmethod
     def remove_stopwords(tokens: List[str], stopwords: set[str]) -> str:
@@ -33,7 +33,7 @@ class StopWordsClear:
         return " ".join(filtered_tokens)
 
     @staticmethod
-    def clean_text(text: str):
+    def clean_text(text: str) -> str:
         cleaned_text = unidecode(text)
         cleaned_text = re.sub(r"\bR\$(?:\s\d+)?(?:[,.]\d+)?\b", "", cleaned_text)
         cleaned_text = re.sub(r"[^A-Za-z\s]", " ", cleaned_text)

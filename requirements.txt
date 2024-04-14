@@ -1,9 +1,12 @@
 fastapi==0.110.*
-uvicorn
 python-dotenv==1.0.0
+pyspellchecker==0.5.*
+uvicorn
 pydantic
 pydantic-settings
 python-multipart
 pandas
 nltk
 unidecode
+stanza
+scikit-learn
