@@ -1,6 +1,9 @@
 fastapi==0.110.*
 python-dotenv==1.0.0
 pyspellchecker==0.5.*
+SQLAlchemy==2.0.*
+sqlalchemy[asyncio]
+asyncpg==0.29.*
 uvicorn
 pydantic
 pydantic-settings
