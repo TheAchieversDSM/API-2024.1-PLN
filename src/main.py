@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+
+from src.config.database import create_session, finish_session
 from .config.settings import settings
 from fastapi.middleware.cors import CORSMiddleware
 from .routes import define_routes
@@ -9,7 +11,8 @@ def get_application():
     _app = FastAPI(
         title=settings.PROJECT_NAME,
         docs_url="/docs",
-        on_startup=[nltk_dependencies_manager],
+        on_startup=[nltk_dependencies_manager, create_session],
+        on_shutdown=[finish_session],
     )
 
     _app.add_middleware(
