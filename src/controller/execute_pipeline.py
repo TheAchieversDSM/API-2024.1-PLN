@@ -2,9 +2,11 @@ from io import BytesIO
 from fastapi import UploadFile
 from pandas import DataFrame
 from src.models.products import Product
+from src.models.base_import import BaseImportLog
 from src.schemas.product import ProductModel
+from src.schemas.base_import import BaseImportModel
 from src.utils.csv import ReadCsv
-import concurrent.futures
+import asyncio
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
@@ -42,26 +44,34 @@ class ExecutePipeline(ReadCsv):
             await product_data.insert(product, self.__db)
         return "Insertion completed"
 
-    def create_summary(self, df: DataFrame):
+    async def create_summary(self, df: DataFrame):
         return "Summary created"
 
-    def create_tags(self, df: DataFrame):
+    async def create_tags(self, df: DataFrame):
         return "Tags created"
 
+    async def base_import_log(self, method: str, msg: str = None, id: int = None):
+        b = BaseImportLog()
+        if method == "POST":
+            b_model = BaseImportModel(fileName=self.__csv.filename, status="Processando")
+            id = await b.insert(b_model, self.__db)
+            return id
+        elif method == "PUT":
+            await b.update(id=id, msg=msg, db=self.__db)
+
+            
     async def processing(self):
+        logger_id = await self.base_import_log("POST")
         df = await self.dataframe()
 
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            future1 = executor.submit(self.insert_products, df)
-            future2 = executor.submit(self.create_summary, df)
-            future3 = executor.submit(self.create_tags, df)
+        task1 = asyncio.create_task(self.insert_products(df.copy()))
+        task2 = asyncio.create_task(self.create_summary(df.copy()))
+        task3 = asyncio.create_task(self.create_tags(df.copy()))
 
-            concurrent.futures.wait([future1, future2, future3])
+        results = await asyncio.gather(task1, task2, task3)
 
-            result1 = await future1.result()
-            result2 = future2.result()
-            result3 = future3.result()
+        print(results[0])
+        print(results[1])
+        print(results[2])
+        await self.base_import_log("PUT", "Concluido", logger_id)
 
-            print(result1)
-            print(result2)
-            print(result3)
