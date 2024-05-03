@@ -7,10 +7,12 @@ class CommentModel(BaseModel):
     title: str
     text: str
     rating: int
+    age: date
     date: date
     gender: str
     state: str
     productId: int
+    recommended: bool
 
     class Config:
         arbitrary_types_allowed = True

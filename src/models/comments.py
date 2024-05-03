@@ -1,7 +1,7 @@
 from ..config.db.orm import OrmBase
 from src.schemas.commet import CommentModel
 from datetime import date as pDate
-from sqlalchemy import BigInteger, Date, Integer, String
+from sqlalchemy import BigInteger, Date, Integer, String, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -18,6 +18,8 @@ class Comment(OrmBase):
     gender: Mapped[str] = mapped_column(String)
     state: Mapped[str] = mapped_column(String)
     productId: Mapped[int] = mapped_column(BigInteger)
+    age: Mapped[pDate] = mapped_column(Date)
+    recommended: Mapped[bool] = mapped_column(Boolean)
 
     async def insert(self, data: CommentModel, db: AsyncSession):
         try:
@@ -34,6 +36,8 @@ class Comment(OrmBase):
                     state=data.state,
                     productId=data.productId,
                     date=data.date,
+                    age=data.age,
+                    recommended=data.recommended
                 )
                 db.add(new_comment)
         except SQLAlchemyError as e:
