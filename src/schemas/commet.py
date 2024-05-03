@@ -11,3 +11,6 @@ class CommentModel(BaseModel):
     gender: str
     state: str
     productId: int
+
+    class Config:
+        arbitrary_types_allowed = True
