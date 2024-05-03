@@ -7,7 +7,7 @@ class CommentModel(BaseModel):
     title: str
     text: str
     rating: int
-    age: date
+    age: int
     date: date
     gender: str
     state: str

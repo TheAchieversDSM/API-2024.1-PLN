@@ -18,7 +18,7 @@ class Comment(OrmBase):
     gender: Mapped[str] = mapped_column(String)
     state: Mapped[str] = mapped_column(String)
     productId: Mapped[int] = mapped_column(BigInteger)
-    age: Mapped[pDate] = mapped_column(Date)
+    age: Mapped[int] = mapped_column(Integer)
     recommended: Mapped[bool] = mapped_column(Boolean)
 
     async def insert(self, data: CommentModel, db: AsyncSession):

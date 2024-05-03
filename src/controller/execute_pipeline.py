@@ -181,12 +181,11 @@ class ExecutePipeline(ReadCsv):
             comment_data = Comment()
             for _, row in df.iterrows():
                 date = parse(row["submission_date"]).strftime("%Y-%m-%d")
-                age = parse(row["reviewer_birth_year"]).strftime("%Y-%m-%d")
                 comment = CommentModel(
                     productId=row["product_id"],
                     state=row["reviewer_state"],
                     date=date,
-                    age=age,
+                    age=row["reviewer_birth_year"],
                     recommended=row["recommend_to_a_friend"],
                     gender=row["reviewer_gender"],
                     id=row["reviewer_id"],
