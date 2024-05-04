@@ -1,16 +1,12 @@
 from fastapi import FastAPI
-from .config.settings import settings
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import define_routes
-from .config.dependency import nltk_dependencies_manager
+from src.config.database import init_db, finish_db
+from src.config.settings import settings
+from src.routes import define_routes
 
 
-def get_application():
-    _app = FastAPI(
-        title=settings.PROJECT_NAME,
-        docs_url="/docs",
-        on_startup=[nltk_dependencies_manager],
-    )
+def get_application() -> FastAPI:
+    _app = FastAPI(title=settings.PROJECT_NAME, docs_url="/docs", on_startup=[init_db], on_shutdown=[finish_db])
 
     _app.add_middleware(
         CORSMiddleware,

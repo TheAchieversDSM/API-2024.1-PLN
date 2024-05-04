@@ -1,0 +1,734 @@
+[
+  {
+    "corpus": "Estou contente com a compra entrega rápida o único problema com as Americanas é se houver troca ou devolução do produto o consumidor tem problemas com espera.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Por apenas R$1994.20, eu consegui comprar esse lindo copo de acrílico.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Supera em agilidade e praticidade outras panelas elétricas. Costumo usar outra panela para cozimento de arroz (japonesa), mas leva muito tempo, +/- 50 minutos. Nessa panela é muito mais rápido, exatamente 6 minutos. Eu recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Meu filho amou! Parece de verdade com tantos detalhes que têm!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "A entrega foi no prazo, as Americanas estão de parabéns. A Smart TV é muito boa, a navegação na internet e pelos aplicativos e excelente, não trava, sem falar da imagem que é de surpreender. Recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Excelente produto, por fora em material acrílico super resistente e por dentro em adamantio, faz milagre com qualquer bebida. Sugiro aproveitarem a promoção antes que acabe.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto muito bom, com essa garrafinha você pode até servir água pro megazord. Estou pensando em vender minha TV pra comprar 1 garrafa dessa. Recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto excelente qualidade boa câmera desenvolvimento do Android com rapidez. O barulho é mínimo e o vento é bem forte na velocidade 2.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Meu produto não foi entregue e a Americanas está descontando na fatura do meu cartão.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Comprei um para cada membro da família nesse Natal!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto maravilhoso! Não é barulhento, fácil manuseio, tranquilo de montar e desmontar, entrega antes do prazo mesmo se tratando de época do Natal. Americanas de parabéns e o produto muito bom. Recomendo com força.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Jogo de panelas excelente material, entrega a tempo, design muito bom.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Esse celular não vale nada, a bateria não vale nada, descarrega sozinha quando está usando, esquenta tanto que faz medo, foi a pior compra da minha vida, se eu tivesse condições, quebrava ele em mil pedaços e comprava outro de qualquer marca menos Motorola.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto de acordo com o que eu esperava. Somente o prazo de entrega que ficou um pouco a desejar, um pouco longo.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "A mochila não está fechando direito, por isso não recomendo. Se meu filho não tivesse deixado suja, ia devolver.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto condizente com o anúncio, com material de boa qualidade, fácil instalação, montagem e preço de acordo com a necessidade de cada um...",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Não tenho nada a reclamar, bom atendimento e entrega dentro do combinado.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Até agora os produtos que eu comprei foram entregues corretamente. Obrigado e que continue assim.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "A capa não decepcionou por enquanto, mas a bolsa para guardar ou transportar é extremamente frágil, na abertura para conferência já rasgou toda a volta junto ao fecho. Pessima impressão, terei que guarda-la noutra embalagem. Uma pena!!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto oferece o que prometeu no anúncio, entrega muito rápida bem antes do prazo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Pontos Positivos: Painel de 10 bits (isso faz toda diferença da mais de 1 bilhão de cores) Bluetooth Wi-Fi AC USB 3.0 Input Lag Baixo Painel VA, que proporciona um alto contraste. Android TV 6.0 Som da TV realmente é excepcional! (saída do auto falantes são voltados para frente) Vem com 2 controles remotos. A TV realmente é formidável, valeu muito a pena ter comprado TCL.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Melhor do que imaginava. Superou minhas expectativas.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Super leve, prático, fácil manuseio, perfeito para mim.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Só tenho que agradecer, vocês estão de parabéns.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Eu não recebi o produto e a Americanas sabe disso, pois já relatei a reclamação diversas vezes!!! Só vão devolver o dinheiro no Procon e isso mesmo?????",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Ótimo produto, comprei para uma pessoa albina, ela adorou, super leve o tecido.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Para quem gosta de qualidade com um preço acessível a todos, eis a melhor opção.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Gostaria de cancelar esta compra, peço sua gentileza me informar como devo proceder.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Uma tela impecável. Se sua prioridade é tela e câmera, esse é o cara. O ponto fraco fica por conta do armazenamento, apenas 16GB, e pela câmera frontal, de apenas 5 megapixels sem flash. No entanto, a câmera principal de 13 megapixels é perfeita.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Aparelho condiz com a sua descrição, super top, tenho o Zenfone 3 e comprei este para minha esposa, ela está amando, super recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Não recebi segundo o correio, o endereço estava errado! Porém o outro pedido recebi!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Muito bonita e prática. Chegou antes do prazo. Americanas de parabéns.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Top de linha, vale a pena comprar, gostei e não me arrependo de ter comprado",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Excelente produto... gostei mesmo... Excelente produto... gostei mesmo...",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Excelente produto... gostei mesmo... Excelente produto... gostei mesmo...",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Melhor custo benefício. Exatamente como anunciado. Recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Sim, é um bom produto. Pode comprar sem problema. Gostei muito do produto!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Gostaria de saber se esse celular tem câmera frontal.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Com exceção que veio a marca Verde ao invés de JL Protect, funciona super bem. Essas coisas chinesas são bem parecidas mesmo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Achei lindo, top de linha, design lindo, câmera, resposta boa, rápida, preço e prazo, tudo certinho, adorei o celular, parabéns Americanas, nota dez!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Fiquei satisfeito com a segurança e garantia de toda transação, entretanto fiz outra compra no dia 29/11 e até hoje não foi entregue. O que diferencia uma compra da outra com relação a entrega?",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Adorei o produto. É bonito e prático. Recomendo. A entrega foi feita antes do prazo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Não veio, esse produto não chegou então não tem como eu avaliar.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Máscara de cílios incrível, tenho pouquíssimo cílios e ela deu um super efeito! Amei!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Aparelho de ótima qualidade e sem defeitos, entrega com pontualidade e qualidade!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "O produto chegou no prazo e em ótimo estado, tenho sido muito bem atendida quando solicito algo no site.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Tem bom acabamento e é prático. Serviu para o que eu precisava!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Ótimo equipamento. Som forte, portátil, prático. Uso muito.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Perfeito, funciona muito bem. Ótimo acabamento. Recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "O produto é excelência para doméstico. Quando quer usar, você monta e quando não usa, você desmonta.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Cabelos alinhados, sem frizz e muito mais rápido do que com escova convencional. Aprovadíssimo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "A câmera frontal do meu é terrível, tanto faz estar claro ou escuro, a foto fica ruim de qualquer jeito. Muito arrependida!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Gostei do produto! Valeu a pena a compra. Atendeu ao objetivo para o qual foi adquirido!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Muito útil, para pesquisas e baixar publicações e vídeos, usando o app JW Library. Parabéns!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Não recebi o produto e a transportadora colocou que recebi. Preciso receber esse produto.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Secador bom, mas cumpre o papel de um secador mediano, não tem nada de especial. Não acho que vale o que custa, se eu soubesse teria investido mais em outro melhor ou menos em outro que provavelmente faria a mesma coisa.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Recomendo produto muito bom, material de boa qualidade.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Parece original, veio com os lacres e tudo certo. Entregou até rápido por ser final de ano.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto funciona corretamente e é muito bom, mas é importante sempre destacar no anúncio que a bateria é de uma boa marca, mas diferente da marca Samsung.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto cumpre o que fala, único porém é que a internet cai um pouco a velocidade.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Minha neta está encantada com a boneca! E a entrega melhor ainda antes do prazo de entrega. Parabéns!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Claro que eu não esperava um fone maravilhoso, mas o som que vem desse fone é horrível. Se equipara ao comprado em camelôs.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto atendeu nossa necessidade e a entrega foi excelente.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Muito bom, com bastante memória, câmera excelente e outros mais recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Ele é bom pra criança, pois tem as teclas pequenas.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Comprei o produto dia 30/11 até hoje dia 01/01 não chegou!! É uma vergonha, dão um prazo e não cumprem e não adianta falar que é devido ao movimento de final de ano, pois pedi um outro produto em outro site e em 8 dias estava na minha casa! Não compro mais",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Água gelada à disposição: a turma bebe mais água e isso é ótimo. Aparelho silencioso e bonito, com espaço para acomodar uma jarra. Pode parecer pouca a diferença entre pegar água da geladeira ou do filtro, mas, considerando que na geladeira há outras opções e o bom é beber água, a prática mostrou que vale a pena essa facilidade, e a saúde agradece...",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "O produto tem um acabamento regular. A parte final as peças vieram com o corte torto. Vale pelo preço mais acessível se comparado com outras lojas.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Achei o produto muito inferior. Pois as bonecas tem uma qualidade bem melhor porém esse kit deixou muito a desejar as massinhas são tão pequenas que teria quase que comprar umas 3 de cada pra fazer alguma coisa. Mas ok",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Adorei a cafeteira. O encaixe é perfeito e não passa pó para o café pronto (minha antiga passava).",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Adorei agora faço meus pães em casa com muito mais qualidade e muito mais saudáveis",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "A entrega sempre no prazo e muitas vezes até antes. O produto com um custo benefício muito bom. Recomendo tanto o site quanto o produto.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Resistente, bonita e super espaçosa. Serviu muito bem para o que foi comprada!!!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "O produto é completamente diferente da descrição e da foto. Não recomendo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Linda bola de pelúcia, acabamento impecável! Poderiam fazer em um tamanho pequeno também, para bebês. Mas o produto é muito bom.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Isso é um absurdo até agora não entregou, comprei pra entregar até 18/12/2017 e até hoje não foi entregue, hoje é dia 01/01/2018",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto de primeira e o tamanho adequado para 1 a 2 pessoas",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto de péssima qualidade quase tudo de papelão não acompanha os carrinhos produto de qualidade inferior. Não comprem não iludam seus filhos. Produto lixo",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Muito bom produto excelente, entrega muito rápido recomendadíssimo",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Nunca estive tão esperançoso para receber um produto como este. Porém ainda não se encontra em minha mãos. Portanto prefiro avaliá-lo após sua chegada. Att. Amador",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Loja ruim cancelou a compra sem solicitação de cancelamento e comunicou o cliente",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Recomendo!! Produto original tudo ok! Entregue dentro do prazo prometido.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Produto com bom shape, resistente e bonito. Truck com qualidade e macio.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Até hoje não recebi o produto.... não recomendo a loja pra ninguém. Era presente de Natal.... péssimo atendimento nenhum esforço dos atendentes para melhorar entrega.... tô fora dessa loja.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Ótimo produto fácil instalação e muito bonita. Moderna",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Pequeno compacto mais muitoooooooo eficiente. Ameiiiiiiii Recomendo",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Ótimo produto, original, recomendo a todos!!! Podem comprar, prazo de entrega dentro do esperado, preço muito atrativo, parabéns as Americanas, farei mais compras futuras.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Super bonita, potente, demorou para chegar, preço ótimo, recomendo",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Muito bom, principalmente o prazo de entrega, a qualidade no envio do produto",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "O tapete é suave ao toque, pelos sedosos, a cor mesclada dá um ar maravilhoso ao ambiente.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Procurei um carrinho com bateria para ficar livre das pilhas. A bateria demora a carregar e dura 5 minutos. O presente de Natal foi uma frustração. Não recomendo o brinquedo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Além de vazar pó no café a jarra escurece, péssima qualidade. Tomar café com pó na nada né",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto muito bom. Atende ao que se propõe.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "A primeira vez de uso quando fui guardar o fone na caixa a espuminha saiu do fone e pra colocar no lugar leva muito tempo",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Recomendo tanto o produto quanto a loja, produto conforme anunciado e entrega antes do prazo previsto... muito bom!!",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Não recebi o produto ainda, devido ao feriado da passagem de ano, o produto não chegou ainda em minhas mãos.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Comprei este Pen drive só que a imagem não condiz com o produto. Veio de outro modelo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Ainda não recebi meu pedido muita irresponsabilidade da loja colocou como entregue e ainda não recebi nada.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O ropo cumpre o que promete, deve se dar muita atenção ao uso da bateria para prolongar a vida útil da mesma.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Excelente produto, esquenta, dá o formato desejado, adorei e recomendo",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Muito básico, gostei mais ou menos. A aparência da propaganda não retrata o produto.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Bom produto Feliz semana e 2018 cheio de amor, alegrias e grandes realizações",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Adorei recomendo o todos que uma perfeita proteção para sua moto e detalhe o produto chegou antes do prazo perfeito protege mesmo e continua impermeável super recomendo ha detalhes meu marido quer que eu compre uma pra ele",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Um bom produto, gela na medida certa, fácil instalação.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Câmera não tem wi-fi como anunciado e nem todos os acessórios que constam na descrição e nas fotos vêm com a câmera!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Celular fantástico. Rápido, muita capacidade, leve, tira fotos de altíssima qualidade e muito fácil de usar.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Esse produto não chegou então não tem como eu avaliar.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "A câmera frontal do meu é terrível, tanto faz tá claro ou escuro, a foto fica ruim de qualquer jeito. Muito arrependida!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não recebi o produto e a transportadora colocou que recebi. Preciso receber esse produto.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Secador bom, mas cumpre o papel de um secador mediano, não tem nada de especial. Não acho que vale o que custa, se eu soubesse teria investido mais em outro melhor ou menos em outro que provavelmente faria a mesma coisa.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Claro que eu não esperava um fone maravilhoso, mas o som que vem desse fone é horrível. Se equipara ao comprado em camelôs.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Ele é bom pra criança, pois tem as teclas pequenas.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Comprei o produto dia 30/11 até hoje dia 01/01 não chegou!! É uma vergonha, dão um prazo e não cumprem e não adianta falar que é devido ao movimento de final de ano, pois pedi um outro produto em outro site e em 8 dias estava na minha casa! Não compro mais.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Achei o produto muito inferior. As bonecas têm uma qualidade bem melhor, porém esse kit deixou muito a desejar, as massinhas são tão pequenas que teria quase que comprar umas 3 de cada pra fazer alguma coisa. Masssss ok.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O produto é completamente diferente da descrição e da foto. Não recomendo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Isso é um absurdo! Até agora não entregou, comprei para entregar até 18/12/2017 e até hoje não foi entregue, hoje é dia 01/01/2018.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto de péssima qualidade, quase tudo de papelão, não acompanha os carrinhos, produto de qualidade inferior. Não comprem, não iludam seus filhos, produto lixo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Loja ruim, cancelou a compra sem solicitação de cancelamento e comunicou o cliente.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Até hoje não recebi meu pedido, muita irresponsabilidade da loja colocou como entregue e ainda não recebi nada.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Muito básico, gostei mais ou menos. A aparência da propaganda não retrata o produto.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Câmera não tem Wi-Fi como anunciado e nem todos os acessórios que constam na descrição e nas fotos vêm com a câmera!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Foi bom eu achar esses anúncios, pois não sabia que dava pra fazer falsas avaliações sobre os produtos. Isso faz com que a Americanas perca a confiabilidade ao meu ver. Onde esse copo está barato?! Péssimo!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não posso avaliar algo que comprei e nunca recebi. Não recebi e nem tive meu dinheiro devolvido. Não recomendo a loja: comprar em outros lugares ou em lojas físicas traz menos transtornos.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto ainda não foi entregue, aguardando a transportadora fazer o serviço.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Não recebi o produto na data marcada. Não existe um telefone de fácil acesso para se informar. E o atendimento ao cliente pelo e-mail é péssimo. Não tira suas dúvidas.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Lixo, paguei e não recebi. Fora de prazo, ninguém resolve nada.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Como assim? Comprei e não recebi. Questionei aqui nas Lojas Americanas. Os Correios registraram como produto entregue e ficou por isso mesmo! Meus protestos! (Mesmo sabendo que tudo será como antes!) OBS.: NÃO RECOMENDO AS LOJAS AMERICANAS! Grrrrr!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Compra efetuada em 02 de dezembro. Até hoje dia 01.01 não foi entregue no destino. A questão é que foram feitas duas compras, sendo que uma foi entregue, porém a outra (camisa) não foi entregue até hoje.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Gente isso é uma pegadinha né? Eu sei que vivemos numa sociedade que aceita o livre comércio, mas um copo por 1900 reais só pode ser brincadeira.... Passada aqui!!! Printei a tela p não dizerem que estou mentindo.... Acho que foi erro de digitação só pode....",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Sei que não vão publicar minha avaliação pois é negativa. Mas ainda vou entrar em contato com a LG para saber onde está o sistema de som surround plus pois na minha parece um radinho de pilha. Que decepção. Tenho o LG 32 580B maravilhoso e acreditei nesse. Mas como perdi o prazo de devolução tive que engolir. Porém, se arrependimento matasse, nessa hora não estaria fazendo esta avaliação e mais é feia. Pés pretos e grossa. Tá aí minha avaliação, publiquem por favor, vai ajudar muita gente a não comprar. Tanto que comprei mais uma e assim que chegar devolverei. Pois não tinha experimentado a que já estava aqui.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não tão forte como esperava e já quebrou. Ele veio em uma embalagem meio rudimentar.. não senti muita qualidade.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Já estão me mandando avaliar um produto que nem recebi, o mesmo já está em atraso e não consigo contato com a Americanas.com, quando ligo o contato é só com gravações e enquanto isso estou aqui a ver navios. Americanas agora vocês me surpreenderam porque isso nunca tinha acontecido antes.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O produto é vendido como suporte universal, no entanto, ele é apenas para modelos mais novos de carros. Chegou nem perto de dar certo em meu veículo. Solicitei a devolução do produto a um mês atrás e até o presente momento não recebi o e-mail com as recomendações para devolução.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto com avaria. Defeito: Botão não funciona. Foi pedido devolução. Ainda no aguardo do reembolso do valor.... Falta de respeito com o consumidor.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Estou aguardando a troca do meu produto desde o dia 22//12.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "O produto não serve para nada, o motor não tem potência suficiente para cumprir o que promete, a lixa não tira nem a pele morta. Dinheiro jogado fora. Péssimo!!!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O produto veio quebrado, mandei de volta há mais de um mês e não tive retorno nenhum, nem do vendedor e nem da Americanas, que na minha opinião é quem anuncia em sua página e deveria dar pelo menos uma satisfação aos clientes, pelo telefone ninguém sabe de nada, não recomendo e nunca mais compro nesse site.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O sistema de vocês é burro... Não viram que eu cancelei a compra por não ter sido entregue?? Não recomendo a Americanas e seus parceiros.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Comprei um celular. A entrega foi muito rápida. Em uma semana. Mais em compensação comprei um fogão. Antes do celular. Já faz mais de quinze dias e a transportadora não movimenta o produto. Ainda está em emitindo nota fiscal.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O produto deveria ser testado antes do envio, pois o meu já veio com defeito.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Vocês pedem atualização da avaliação e não fazem nada. Devolvam o dinheiro e a taxa de transporte.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Nunca mais compro no site da Americanas.com, produto chegou após a data estipulada e olha que passou mais de 20 dias, o fio veio com mal contato e não veio nota fiscal, deve ser contrabando ou sonegação fiscal !!!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "A Americanas é muito irresponsável pois a entrega ainda não chegou.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Infelizmente a costura soltou no 2 o dia de uso, enchi cautelosamente e procurei limpar bem o chão para não haver nenhum risco de achar algo que pudesse furá-lo mas mesmo assim rasgou com um peso de 50 kg num colchão de casal... definitivamente não recomendo o produto.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Aguardo o produto. Sem contato do fornecedor desde o dia 14/12. Enviei vários e-mail, reclamei e não obtive retorno. Tava muito barato pra ser verdade mesmo...",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Comprei três brancos, os três chegaram com defeito, um arranhado, um quebrado e o outro amassado na parte do encaixe, enviei a solicitação para troca e até agora não obtive resposta quanto a troca, estou totalmente insatisfeita.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "ESTOU COMPLEMENTE INSATISFEITO COM A LOJA AMERICANAS NÃO RECEBI MEU PRODUTO!!!!!!!!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Comprei esse produto pra dar de presente e não recebi a mercadoria. A empresa colocou status de entregue sem entregar a mercadoria. Não comprem é furada, a empresa não honra compromissos.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Quando chega na velocidade máxima ela solta óleo. Recebi um produto reembalado, só pode.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Á boneca foi enviada sem nota fiscal, quando abrimos a embalagem vimos que a boneca estava com vários defeitos como a cabeça mole, mamadeira toda torta e soltando todo glitter (mais parece uma réplica). Solicitei cancelamento mas até hoje nenhuma resposta (NÃO SEJAM ENGANADOS, NÃO COMPREM OU IRAM SE ARREPENDER.) Pior experiência de compra que já tivemos. Decepção.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não é o mesmo material do original, mas parece bom.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Produto recusado porque chegou só depois do Natal.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Como pedem minha avaliação se não recebi o produto e fui informada que o mesmo foi extraviado e que não teria outro em estoque? O estranho é que o produto está disponível, até o momento, no site!!! Mas ao menos meu dinheiro foi devolvido, o que comprova a honestidade das Lojas Americanas.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Quase 2 mil reais num copo? Preço absurdo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Palhaçada vou guardar todos esses e-mails, para processar a Americanas pela enganação, avaliar um produto sequer eu recebi, falta de respeito com cliente, até hoje espero uma posição do meu produto, aliás já estou pagando a fatura sem ter o produto, bando de irresponsável que fazem tudo ao contrário que prometem, vou no PROCON e processar Americanas por danos, era presente de aniversário!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Estava programado para chegar em 23/12, porém ainda não chegou :(",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Estou muito decepcionado com esta empresa, pois fiz o pedido dos produtos em 01/12 e até o momento ainda não chegou. O que aconteceu com o pedido?????? Aguardo uma resposta salutar!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O modelo é muito bonito, porém veio com defeito, vazando água.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Deveria ter uma trava para o copo, que apenas é só colocar. Muito fraco!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Como é que conseguem deixar um copo anunciado por 1.994,20? Estão vendendo por milheiro agora?",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Muito ruim. Não gostei. Meu sobrinho ficou super ansioso, o jogo chegou e não instala de forma nenhuma. Já trocamos o pen drive, já tentamos de tudo. Frustrante.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Aparelho importado, garantia somente através deste processo. Vende gato por lebre!!!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Excelente custo beneficio, com esse preço dei pra minha família toda... Recomendo.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "Adorei o produto, o preço está totalmente acessível ao meu bolso, comprei para toda minha família dois, para no caso de quebrar um, (devido ao acrílico rsrsrs) eles terem outro. Adorei o copo. Recomendo a todos esse copo, mesmo que não tenha dinheiro, junte para comprá-lo vale totalmente o investimento.",
+    "review_type": "positiva"
+  },
+  {
+    "corpus": "1994,00 reais em um copo? Vocês estão de sacanagem né.... Isso é o valor da máquina de fazer esses copos né....",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Este celular não tem contatos quando você clicar para discar ele começa a atualizar o programa e não funciona, além disso, esquenta rápido e começa a bulgar! Estou pedindo o cancelamento da compra! Fica a dica!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Um baita descaso, estava programado para chegar no dia 22, pois comprei justamente para presentear no Natal, a empresa demorou vários dias para postar até imagino que vão dizer que a culpa é dos correios, não compro mais da Americanas, não recomendo nem pra inimigo! Estou muito insatisfeito!",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não entregaram o produto e até agora não recebi resposta da restituição do pagamento. Péssimo para mim e possivelmente para Americanas.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto aparentemente falso de péssima qualidade nunca pensei que uma loja como Americanas aceitaria ser comercializada um produto desse. Não tenho mais coragem de comprar perfumes na Americanas.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Campanha ridícula, cheguei ao fim em algumas horas de jogo sem esforço.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "As borboletas não voam, somente quando colocamos o elefante na horizontal é que as borboletas saem.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "Boa tarde. Estou insatisfeita com o aparelho, o mesmo está apresentando problemas na câmera frontal, na verdade a câmera está travada e não há o que fazer. Quero trocar o produto.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto nem minha casa chegou, como vou dizer que recomendo?",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Minha avaliação é ruim porque ainda não recebi o produto, e também nenhuma explicação sobre qual o problema está ocorrendo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Tinha comprado a outra cozinha com a geladeira e mudaram o produto.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Só poderei avaliar a hora que o produto chegar, o que ainda não aconteceu.",
+    "review_type": "neutra"
+  },
+  {
+    "corpus": "A asa do lado direito, quando acionada, pula e sai do lugar. Gostaria de saber como faço a troca ou levo em algum lugar para olhar.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Eu não recebi a boneca LOL, por isso não tem como avaliá-la.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Não me entregou no prazo previsto. Estou aguardando até agora!! Pagar 220$ de frete e não chegar no prazo..",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "O prazo vencerá dia 10/01 e nota fiscal sequer foi emitida. Estou muito preocupado se vai chegar no prazo.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Aparelho muito funcional até dar defeito 5 dias após a entrega. 3 usos apenas. Desapontada.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "Produto chegou em péssimo estado e tive que devolver.",
+    "review_type": "negativa"
+  },
+  {
+    "corpus": "A unidade remota não funciona. Produto inútil. Quero devolvê-lo.",
+    "review_type": "negativa"
+  }
+]
