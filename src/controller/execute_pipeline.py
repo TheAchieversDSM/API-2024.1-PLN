@@ -1,10 +1,12 @@
 from src.models import CategorySummary, Comment, Product, BaseImportLog
+from src.models.product_sumary import ProductSummary
 from src.schemas import (
     BaseImportModel,
     CategorySummaryModel,
     CommentModel,
     ProductModel,
 )
+from src.schemas.product_summary import ProductSummaryModel
 from src.services.processamento import Processamento
 from src.utils import ReadCsv
 from io import BytesIO
@@ -13,7 +15,6 @@ from fastapi import UploadFile
 from pandas import DataFrame
 from sqlalchemy.ext.asyncio import AsyncSession
 from dateutil.parser import parse
-
 
 class ExecutePipeline(ReadCsv):
     def __init__(self, csv: UploadFile, db: AsyncSession) -> None:
@@ -79,6 +80,12 @@ class ExecutePipeline(ReadCsv):
             unique_categories.add(row["site_category_lv1"])
         return list(unique_categories)
 
+    async def products_list(self, df: DataFrame) -> List[str]:
+        unique_categories = set()
+        for _, row in df.iterrows():
+            unique_categories.add(row["product_id"])
+        return list(unique_categories)
+
     async def inserts(self, df: DataFrame, db: AsyncSession) -> str:
         try:
             await self.insert_products(df, db)
@@ -101,6 +108,13 @@ class ExecutePipeline(ReadCsv):
             print("[ExecutePipeline - process_hot_topics] ", e)
 
     async def execute_process(self, df: DataFrame, db: AsyncSession):
+        try:
+            await self.category_execute(df.copy(), db)
+            await self.product_execute(df.copy(), db)
+        except Exception as e:
+            print("[ExecutePipeline - execute_process]", e)
+
+    async def category_execute(self, df: DataFrame, db: AsyncSession):
         result_hot_topics = {}
         result_most_comments = {}
         try:
@@ -118,7 +132,38 @@ class ExecutePipeline(ReadCsv):
             await self.result_category_summary(result_hot_topics, db, "tag")
             await self.result_most_comment(result_most_comments, db, "comment")
         except Exception as e:
-            print("[ExecutePipeline - execute_process]", e)
+            print("[ExecutePipeline - category_execute]", e)
+
+    async def product_execute(self, df: DataFrame, db: AsyncSession):
+        result = {}
+        try:
+            products = await self.products_list(df)
+            for product in products:
+                product_df = df[df["product_id"] == product]
+                process_class = Processamento(product_df["review_text"].tolist())
+                data = process_class.process()
+                result[product] = self.process_hot_topics(process_class, data)
+            await self.result_product_summary(result, db)
+        except Exception as e:
+            print("[ExecutePipeline - product_execute]", e)
+
+    async def result_product_summary(
+        self, data: Dict[str, List[str]], db: AsyncSession
+    ) -> None:
+        product_summary = ProductSummary()
+        try:
+            for product in data:
+                for values in data[product]:
+                    product_model = ProductSummaryModel(
+                        product_id=product,
+                        text=values["adjective"],
+                        amount=values["count"],
+                    )
+                    await product_summary.insert(product_model, db)
+                # print(product)
+                # print(data[product])
+        except Exception as e:
+            print("[ExecutePipeline - result_product_summary]", e)
 
     async def result_category_summary(
         self, data: Dict[str, List[str]], db: AsyncSession, type: str = ""
