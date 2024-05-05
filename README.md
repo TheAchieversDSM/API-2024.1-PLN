@@ -30,5 +30,5 @@
   pip install -r requirements.txt
 
 # Execute o projeto com o comando:
-  python src/main.py
+  uvicorn src.main:app
 ```
