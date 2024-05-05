@@ -1,12 +1,11 @@
 from typing import List
-from ..utils.stopwords_list import my_stop_words
+from src.utils import stop_words
 import re
-from unidecode import unidecode
 
 
 class StopWordsClear:
     def __init__(self, reviews: List[str]) -> None:
-        self.stopwords = my_stop_words
+        self.stopwords = stop_words
         self.reviews = reviews
 
     @staticmethod
@@ -34,9 +33,9 @@ class StopWordsClear:
 
     @staticmethod
     def clean_text(text: str) -> str:
-        cleaned_text = unidecode(text)
-        cleaned_text = re.sub(r"\bR\$(?:\s\d+)?(?:[,.]\d+)?\b", "", cleaned_text)
-        cleaned_text = re.sub(r"[^A-Za-z\s]", " ", cleaned_text)
+        cleaned_text = re.sub(r'\d+', ' ', text)
+        cleaned_text = re.sub(r'\b(?:R|\$|€|£|¥)\b', ' ', cleaned_text)
+        cleaned_text = re.sub(r'[^\w\s\-áéíóúâêîôûàèìòùãõç]+|\([^)]*\)|\[[^\]]*\]|\{[^}]*\}', ' ', cleaned_text)
         return cleaned_text.lower()
 
     def preprocess_text(self) -> List[str]:

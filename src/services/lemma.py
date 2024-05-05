@@ -1,28 +1,23 @@
-import logging
+from concurrent.futures import ThreadPoolExecutor
 from typing import List
-from stanza import Pipeline
-
-logging.getLogger("stanza").setLevel(logging.ERROR)
+import spacy
 
 
 class WordLemmatizer:
     def __init__(self, reviews: List[str]) -> None:
         self.__reviews = reviews
-        self.npl = Pipeline("pt", processors="tokenize,lemma", use_lemmatizer=True)
+        self.nlp = spacy.load("pt_core_news_lg", disable=["parser", "ner"])
 
-    @staticmethod
-    def lemmatize_words(review, npl: Pipeline):
-        text = " ".join(review)
-        doc = npl(text)
-        lemmas = []
-        for sent in doc.sentences:
-            for word in sent.words:
-                lemmas.append(word.lemma)
-        return " ".join(lemmas)
+    def preprocess_text(self) -> List[List[str]]:
+        with ThreadPoolExecutor() as executor:
+            result = executor.map(self.__lematize_review, self.__reviews)
+        return list(result)
 
-    def preprocess_text(self) -> List[str]:
-        processed_texts = []
-        for review in self.__reviews:
-            processed_review = self.lemmatize_words(review, self.npl)
-            processed_texts.append(processed_review)
-        return processed_texts
+    def lemmatize_words(self, text: str) -> List[str]:
+        doc = self.nlp(text)
+        lemmatized_tokens = [token.lemma_ for token in doc]
+        return lemmatized_tokens
+
+    def __lematize_review(self, review):
+        processed_review = self.lemmatize_words(" ".join(review))
+        return processed_review
