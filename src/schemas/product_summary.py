@@ -4,3 +4,4 @@ class ProductSummaryModel(BaseModel):
     amount: int
     text: str
     product_id: int
+    sentiment_review: str

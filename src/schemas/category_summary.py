@@ -5,3 +5,4 @@ class CategorySummaryModel(BaseModel):
     amount: int
     text: str
     type: str
+    sentiment_review: str

@@ -42,18 +42,34 @@ class Processamento:
 
     @timing
     def __ranking_words(self, reviews: List[str]):
-        ranking_words = IdentifyHotTopicList(reviews)
-        process = ranking_words.identify_hot_topics()
-        return process
+        list_type = {'positiva': [], 'negativa': [], 'neutra': []}
+        for review in reviews:
+            if review.get('review_type') in list_type:
+                list_type[review['review_type']].append(review['corpus'])
+        
+        for review_type, corpus_list in list_type.items():
+            if len(corpus_list) > 0:
+                ranking_words = IdentifyHotTopicList([corpus_list])
+                clusters = ranking_words.identify_hot_topics()
+                list_type[review_type] = clusters
+        
+        return list_type
+
 
     @timing
     def __document_similarity(self, reviews: List[str]):
-        corpus_positivos = [review['corpus'] for review in reviews if review.get('review_type') == 'positiva']
-        if len(corpus_positivos) > 2:
-            document_similarity = DocumentSimilarity(corpus_positivos)
-            process = document_similarity.generate_document_clusters()
-            return process
-        return None
+        list_type = {'positiva': [], 'negativa': [], 'neutra': []}
+        for review in reviews:
+            if review.get('review_type') in list_type:
+                list_type[review['review_type']].append(review['corpus'])
+        for review_type, corpus_list in list_type.items():
+            if len(corpus_list) > 2:
+                document_similarity = DocumentSimilarity(corpus_list)
+                clusters = document_similarity.generate_document_clusters()
+                list_type[review_type] = clusters
+        return list_type
+
+
     
     @timing
     def __reviews_classifier(self, reviews: List[str]):
@@ -66,13 +82,13 @@ class Processamento:
         expanded, _ = self.__expanded_abreviatio(reviews)
         corrects, _ = self.__correcting_words(expanded)
         lemmatizer, _ = self.__lemmatize_words(corrects)
-        return lemmatizer
+        classifier, _ = self.__reviews_classifier(lemmatizer)
+        return classifier
 
     def process_data_hot_topics(self, data):
         ranking, _ = self.__ranking_words(data)
         return ranking
 
     def process_data_document_similarity(self, data):
-        classifier, _ = self.__reviews_classifier(data)
-        similarity, _ = self.__document_similarity(classifier)
+        similarity, _ = self.__document_similarity(data)
         return similarity

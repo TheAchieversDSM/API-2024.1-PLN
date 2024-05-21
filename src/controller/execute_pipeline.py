@@ -16,6 +16,7 @@ from pandas import DataFrame
 from sqlalchemy.ext.asyncio import AsyncSession
 from dateutil.parser import parse
 
+
 class ExecutePipeline(ReadCsv):
     def __init__(self, csv: UploadFile, db: AsyncSession) -> None:
         super().__init__()
@@ -152,16 +153,16 @@ class ExecutePipeline(ReadCsv):
     ) -> None:
         product_summary = ProductSummary()
         try:
-            for product in data:
-                for values in data[product]:
-                    product_model = ProductSummaryModel(
-                        product_id=product,
-                        text=values["adjective"],
-                        amount=values["count"],
-                    )
-                    await product_summary.insert(product_model, db)
-                # print(product)
-                # print(data[product])
+            for product, review_types in data.items():
+                for review_type, adjectives_list in review_types.items():
+                    for adjective_info in adjectives_list:
+                        product_model = ProductSummaryModel(
+                            product_id=product,
+                            text=adjective_info.get("adjective"),
+                            amount=adjective_info.get("count"),
+                            sentiment_review=review_type,
+                        )
+                        await product_summary.insert(product_model, db)
         except Exception as e:
             print("[ExecutePipeline - result_product_summary]", e)
 
@@ -170,41 +171,72 @@ class ExecutePipeline(ReadCsv):
     ) -> None:
         category_summary = CategorySummary()
         try:
-            for category in data:
-                for values in data[category]:
-                    category_model = CategorySummaryModel(
-                        category=category,
-                        text=values["adjective"],
-                        amount=values["count"],
-                        type=type,
-                    )
-                    await category_summary.insert(category_model, db)
+            for category, review_types in data.items():
+                for review_type, adjectives_list in review_types.items():
+                    for adjective_info in adjectives_list:
+                        category_model = CategorySummaryModel(
+                            category=category,
+                            text=adjective_info.get("adjective"),
+                            amount=adjective_info.get("count"),
+                            type=type,
+                            sentiment_review=review_type,
+                        )
+                        await category_summary.insert(category_model, db)
         except Exception as e:
             print("[ExecutePipeline - result_category_summary] ", e)
 
     async def result_most_comment(
-        self, data: Dict[str, List[Dict[str, str]]], db: AsyncSession, type: str = ""
+        self, data: Dict[str, List[str]], db: AsyncSession, type: str = ""
     ) -> None:
+        category_summary = CategorySummary()
         try:
-            category_summary = CategorySummary()
-            for category, clusters in data.items():
-                if clusters is None:
-                    continue
-                for cluster_index, cluster in enumerate(clusters, 1):
-                    if cluster is None:
-                        continue
-                    top_texts = cluster.get("Cluster Text", [])[:2]
-                    for text in top_texts:
-                        if text is not None:
-                            category_model = CategorySummaryModel(
-                                category=category,
-                                text=text,
-                                amount=cluster_index,
-                                type=type,
-                            )
-                            await category_summary.insert(category_model, db)
+            for category, sentiments in data.items():
+                for sentiment, clusters in sentiments.items():
+                    await self.process_clusters(
+                        category, sentiment, clusters, type, db, category_summary
+                    )
         except Exception as e:
-            print("[ExecutePipeline - result_most_comment] ", e)
+            self.log_exception(e)
+
+    async def process_clusters(
+        self, category, sentiment, clusters, type, db, category_summary
+    ):
+        for cluster_info in clusters:
+            if isinstance(cluster_info, dict):
+                top_texts = cluster_info.get("Cluster Text", [])[:2]
+                cluster_label = cluster_info.get("Cluster Label", 0)
+                await self.process_cluster_texts(
+                    category,
+                    top_texts,
+                    cluster_label,
+                    sentiment,
+                    type,
+                    db,
+                    category_summary,
+                )
+
+    async def process_cluster_texts(
+        self,
+        category,
+        top_texts,
+        cluster_label,
+        sentiment,
+        type,
+        db,
+        category_summary: CategorySummary,
+    ):
+        for text in top_texts:
+            category_model = CategorySummaryModel(
+                category=category,
+                text=text,
+                amount=cluster_label,
+                type=type,
+                sentiment_review=sentiment,
+            )
+            await category_summary.insert(category_model, db)
+
+    def log_exception(self, exception):
+        print("[ExecutePipeline - result_most_comment] ", exception)
 
     async def insert_products(self, df: DataFrame, db: AsyncSession) -> None:
         try:
