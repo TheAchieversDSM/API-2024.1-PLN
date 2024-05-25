@@ -14,6 +14,7 @@ class CategorySummary(OrmBase):
     text: Mapped[str] = mapped_column(String, nullable=False)
     type: Mapped[str] = mapped_column(String)
     category: Mapped[str] = mapped_column(String)
+    sentiment_review: Mapped[str] = mapped_column(String)
 
     async def insert(self, data: CategorySummaryModel, db: AsyncSession):
         try:
@@ -32,6 +33,7 @@ class CategorySummary(OrmBase):
                 text=data.text,
                 type=data.type,
                 category=data.category,
+                sentiment_review=data.sentiment_review
             )
             db.add(new_summary)
         except SQLAlchemyError as e:
