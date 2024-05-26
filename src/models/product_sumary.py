@@ -12,6 +12,7 @@ class ProductSummary(OrmBase):
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     amount: Mapped[int] = mapped_column(Integer, nullable=False)
     text: Mapped[str] = mapped_column(String, nullable=False)
+    sentiment_review: Mapped[str] = mapped_column(String)
     product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id"))
     product: Mapped["Product"] = relationship("Product", back_populates="summary")  # type: ignore  # noqa: F821
 
@@ -30,7 +31,8 @@ class ProductSummary(OrmBase):
             insert = ProductSummary(
                 amount=data.amount,
                 text=data.text,
-                product_id=data.product_id
+                product_id=data.product_id,
+                sentiment_review=data.sentiment_review
             )
             db.add(insert)
         except SQLAlchemyError as e:
