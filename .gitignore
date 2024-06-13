@@ -2,10 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+html/
+.vscode/
 # C extensions
 *.so
-
+*.pkl
+.mutmut-cache
 # Distribution / packaging
 .Python
 build/

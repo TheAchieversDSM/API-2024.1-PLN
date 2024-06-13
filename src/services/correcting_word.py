@@ -1,5 +1,4 @@
 from collections import defaultdict
-from concurrent.futures import ThreadPoolExecutor
 from typing import List
 from src.utils import nltk_tokens
 
@@ -38,13 +37,7 @@ class WordCorrecting:
         return max(candidates, key=self.count.get)
 
     def preprocess_text(self):
-        corrected_reviews = []
-        with ThreadPoolExecutor() as executor:
-            results = executor.map(self.__correct_review, self._reviews)
-            for corrected_words in results:
-                corrected_reviews.append(corrected_words)
-        return corrected_reviews
+        return [self.__correct_review(review) for review in self._reviews]
 
     def __correct_review(self, review):
-        corrected_words = [self.correct(word) for word in review]
-        return corrected_words
+        return [self.correct(word) for word in review]

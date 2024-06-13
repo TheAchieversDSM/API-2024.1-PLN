@@ -1,2 +1,4 @@
 PROJECT_NAME="API PLN Fatec"
 BACKEND_CORS_ORIGINS=["http://localhost:8000/", "https://localhost:8000/", "http://localhost/", "https://localhost/"]
+
+PKL_MODELO_TREINO="modelo_treinado.pkl"
