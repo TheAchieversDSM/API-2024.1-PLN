@@ -1,10 +1,11 @@
+from src.config.settings import settings
 import numpy as np
 import json
-import re
 from sklearn.model_selection import GridSearchCV
 from sklearn.neural_network import MLPClassifier
 import joblib
 from nltk.tokenize import word_tokenize
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 
 class ClassificadorRevisao:
@@ -16,6 +17,7 @@ class ClassificadorRevisao:
             "review_type": "",
             "feature_vector": [],
         }
+        self.sentiment_analyzer = SentimentIntensityAnalyzer()
         self.carregar_revisoes()
         try:
             self.carregar_modelo()
@@ -30,24 +32,19 @@ class ClassificadorRevisao:
         except FileNotFoundError as f:
             print("[ClassificadorRevisao - carregar_revisoes]", f)
 
-    def construir_vetor_caracteristicas(self, tokens, lexico_base):
+    def construir_vetor_caracteristicas(self, tokens):
         try:
-            vetor_caracteristicas = np.zeros(len(lexico_base))
-            for pos, palavra_lexico in enumerate(lexico_base):
-                vetor_caracteristicas[pos] = tokens.count(palavra_lexico)
-            return vetor_caracteristicas
+            scores = self.sentiment_analyzer.polarity_scores(" ".join(tokens))
+            return np.array([scores['neg'], scores['neu'], scores['pos'], scores['compound']])
         except Exception as e:
             print("[ClassificadorRevisao - construir_vetor_caracteristicas] ", e)
 
     def treinar_classificador(self):
-        lexico_base = set()
         try:
-            for revisao in self.revisoes_classificadas:
-                lexico_base.update(set(re.findall(r"\b\w+\b", revisao["corpus"])))
-            lexico_base = sorted(lexico_base)
-
             X = [
-                self.construir_vetor_caracteristicas(word_tokenize(rev["corpus"]), lexico_base)
+                self.construir_vetor_caracteristicas(
+                    word_tokenize(rev["corpus"].lower())
+                )
                 for rev in self.revisoes_classificadas
             ]
             y = [rev["review_type"] for rev in self.revisoes_classificadas]
@@ -68,26 +65,25 @@ class ClassificadorRevisao:
 
     def classificar_revisoes_nao_classificadas(self, revisoes_nao_classificadas):
         resultados = []
-        lexico_base = set()
         try:
-            for revisao in self.revisoes_classificadas:
-                lexico_base.update(set(re.findall(r"\b\w+\b", revisao["corpus"])))
-            lexico_base = sorted(lexico_base)
-
-            for tokens in revisoes_nao_classificadas:
-                feature_vector = self.construir_vetor_caracteristicas(tokens, lexico_base)
+            for revisao in revisoes_nao_classificadas:
+                print(revisao   )
+                tokens = word_tokenize(revisao[0].lower())
+                feature_vector = self.construir_vetor_caracteristicas(tokens)
                 review_type = self.classificador.predict([feature_vector])[0]
                 revisao_classificada = {
-                    "corpus": " ".join(tokens),
+                    "corpus": revisao[0],
                     "review_type": review_type,
                 }
                 resultados.append(revisao_classificada)
             return resultados
         except Exception as e:
             print("[ClassificadorRevisao - classificar_revisoes_nao_classificadas] ", e)
+            return resultados
+
 
     def salvar_modelo(self):
-        joblib.dump(self.classificador, "modelo_treinado.pkl")
+        joblib.dump(self.classificador, settings.PKL_MODELO_TREINO)
 
     def carregar_modelo(self):
-        self.classificador = joblib.load("modelo_treinado.pkl")
+        self.classificador = joblib.load(settings.PKL_MODELO_TREINO)

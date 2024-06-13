@@ -1,4 +1,4 @@
-from src.schemas import CategorySummaryModel
+from src.schemas.category_summary import CategorySummaryModel
 from ..config.db.orm import OrmBase
 from sqlalchemy import BigInteger, Integer, String
 from sqlalchemy.exc import SQLAlchemyError
