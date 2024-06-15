@@ -18,7 +18,7 @@
   git clone https://github.com/TheAchieversDSM/API-2024.1-PLN.git
 
 # Crie um ambiente virtual do Python:
-  python3.12 -m venv venv
+  python3.11 -m venv venv
 
 # Ative o ambiente virtual Win:
   venv/Scripts/activate
