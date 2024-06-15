@@ -67,7 +67,6 @@ class ClassificadorRevisao:
         resultados = []
         try:
             for revisao in revisoes_nao_classificadas:
-                print(revisao   )
                 tokens = word_tokenize(revisao[0].lower())
                 feature_vector = self.construir_vetor_caracteristicas(tokens)
                 review_type = self.classificador.predict([feature_vector])[0]

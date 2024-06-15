@@ -27,5 +27,4 @@ def test_reviews_classifier(document: ClassificadorRevisao):
             "review_type": "positiva",
         },
     ]
-    print(lem)
     assert result == lem
