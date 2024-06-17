@@ -1,16 +1,15 @@
-from src.models import CategorySummary, Comment, Product, BaseImportLog
-from src.models.product_sumary import ProductSummary
-from src.schemas import (
-    BaseImportModel,
-    CategorySummaryModel,
-    CommentModel,
-    ProductModel,
-)
-from src.schemas.product_summary import ProductSummaryModel
-from src.services.processamento import Processamento
+from src.controller.category_pipeline import CategoryPipeline
+from src.controller.product_pipeline import ProductPipeline
+from src.models.base_import import BaseImportLog
+from src.models.comments import Comment
+from src.models.products import Product
+
+from src.schemas.base_import import BaseImportModel
+from src.schemas.commet import CommentModel
+from src.schemas.product import ProductModel
+
 from src.utils import ReadCsv
 from io import BytesIO
-from typing import Dict, List
 from fastapi import UploadFile
 from pandas import DataFrame
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -75,18 +74,6 @@ class ExecutePipeline(ReadCsv):
         except Exception as e:
             raise e
 
-    async def categories(self, df: DataFrame) -> List[str]:
-        unique_categories = set()
-        for _, row in df.iterrows():
-            unique_categories.add(row["site_category_lv1"])
-        return list(unique_categories)
-
-    async def products_list(self, df: DataFrame) -> List[str]:
-        unique_categories = set()
-        for _, row in df.iterrows():
-            unique_categories.add(row["product_id"])
-        return list(unique_categories)
-
     async def inserts(self, df: DataFrame, db: AsyncSession) -> str:
         try:
             await self.insert_products(df, db)
@@ -96,147 +83,14 @@ class ExecutePipeline(ReadCsv):
             print("[ExecutePipeline - category_summary] Erro ao inserir dados: ", e)
             raise
 
-    def process_most_comment(self, _class: Processamento, data):
-        try:
-            return _class.process_data_document_similarity(data)
-        except Exception as e:
-            print("[ExecutePipeline - process_most_comment] ", e)
-
-    def process_hot_topics(self, _class: Processamento, data) -> str:
-        try:
-            return _class.process_data_hot_topics(data)
-        except Exception as e:
-            print("[ExecutePipeline - process_hot_topics] ", e)
-
     async def execute_process(self, df: DataFrame, db: AsyncSession):
+        category_execute = CategoryPipeline(df.copy(), db)
+        product_execute = ProductPipeline(df.copy(), db)
         try:
-            await self.category_execute(df.copy(), db)
-            await self.product_execute(df.copy(), db)
+            await category_execute.category_execute()
+            await product_execute.product_execute()
         except Exception as e:
             print("[ExecutePipeline - execute_process]", e)
-
-    async def category_execute(self, df: DataFrame, db: AsyncSession):
-        result_hot_topics = {}
-        result_most_comments = {}
-        try:
-            categories = await self.categories(df)
-            for category in categories:
-                category_df = df[df["site_category_lv1"] == category]
-                process_class = Processamento(category_df["review_text"].tolist())
-                data = process_class.process()
-                result_most_comments[category] = self.process_most_comment(
-                    process_class, data
-                )
-                result_hot_topics[category] = self.process_hot_topics(
-                    process_class, data
-                )
-            await self.result_category_summary(result_hot_topics, db, "tag")
-            await self.result_most_comment(result_most_comments, db, "comment")
-        except Exception as e:
-            print("[ExecutePipeline - category_execute]", e)
-
-    async def product_execute(self, df: DataFrame, db: AsyncSession):
-        result = {}
-        try:
-            products = await self.products_list(df)
-            for product in products:
-                product_df = df[df["product_id"] == product]
-                process_class = Processamento(product_df["review_text"].tolist())
-                data = process_class.process()
-                result[product] = self.process_hot_topics(process_class, data)
-            await self.result_product_summary(result, db)
-        except Exception as e:
-            print("[ExecutePipeline - product_execute]", e)
-
-    async def result_product_summary(
-        self, data: Dict[str, List[str]], db: AsyncSession
-    ) -> None:
-        product_summary = ProductSummary()
-        try:
-            for product, review_types in data.items():
-                for review_type, adjectives_list in review_types.items():
-                    for adjective_info in adjectives_list:
-                        product_model = ProductSummaryModel(
-                            product_id=product,
-                            text=adjective_info.get("adjective"),
-                            amount=adjective_info.get("count"),
-                            sentiment_review=review_type,
-                        )
-                        await product_summary.insert(product_model, db)
-        except Exception as e:
-            print("[ExecutePipeline - result_product_summary]", e)
-
-    async def result_category_summary(
-        self, data: Dict[str, List[str]], db: AsyncSession, type: str = ""
-    ) -> None:
-        category_summary = CategorySummary()
-        try:
-            for category, review_types in data.items():
-                for review_type, adjectives_list in review_types.items():
-                    for adjective_info in adjectives_list:
-                        category_model = CategorySummaryModel(
-                            category=category,
-                            text=adjective_info.get("adjective"),
-                            amount=adjective_info.get("count"),
-                            type=type,
-                            sentiment_review=review_type,
-                        )
-                        await category_summary.insert(category_model, db)
-        except Exception as e:
-            print("[ExecutePipeline - result_category_summary] ", e)
-
-    async def result_most_comment(
-        self, data: Dict[str, List[str]], db: AsyncSession, type: str = ""
-    ) -> None:
-        category_summary = CategorySummary()
-        try:
-            for category, sentiments in data.items():
-                for sentiment, clusters in sentiments.items():
-                    await self.process_clusters(
-                        category, sentiment, clusters, type, db, category_summary
-                    )
-        except Exception as e:
-            self.log_exception(e)
-
-    async def process_clusters(
-        self, category, sentiment, clusters, type, db, category_summary
-    ):
-        for cluster_info in clusters:
-            if isinstance(cluster_info, dict):
-                top_texts = cluster_info.get("Cluster Text", [])[:2]
-                cluster_label = cluster_info.get("Cluster Label", 0)
-                await self.process_cluster_texts(
-                    category,
-                    top_texts,
-                    cluster_label,
-                    sentiment,
-                    type,
-                    db,
-                    category_summary,
-                )
-
-    async def process_cluster_texts(
-        self,
-        category,
-        top_texts,
-        cluster_label,
-        sentiment,
-        type,
-        db,
-        category_summary: CategorySummary,
-    ):
-        for text in top_texts:
-            category_model = CategorySummaryModel(
-                category=category,
-                text=text,
-                amount=cluster_label,
-                type=type,
-                sentiment_review=sentiment,
-            )
-            await category_summary.insert(category_model, db)
-
-    def log_exception(self, exception):
-        print("[ExecutePipeline - result_most_comment] ", exception)
 
     async def insert_products(self, df: DataFrame, db: AsyncSession) -> None:
         try:

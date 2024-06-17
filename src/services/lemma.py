@@ -1,23 +1,17 @@
-from concurrent.futures import ThreadPoolExecutor
 from typing import List
-import spacy
 
 
 class WordLemmatizer:
-    def __init__(self, reviews: List[str]) -> None:
+    def __init__(self, reviews: List[str], nlp) -> None:
         self.__reviews = reviews
-        self.nlp = spacy.load("pt_core_news_lg", disable=["parser", "ner"])
+        self.nlp = nlp
 
     def preprocess_text(self) -> List[List[str]]:
-        with ThreadPoolExecutor() as executor:
-            result = executor.map(self.__lematize_review, self.__reviews)
-        return list(result)
+        return [self.__lematize_review(review) for review in self.__reviews]
 
     def lemmatize_words(self, text: str) -> List[str]:
         doc = self.nlp(text)
-        lemmatized_tokens = [token.lemma_ for token in doc]
-        return lemmatized_tokens
+        return [token.lemma_ for token in doc]
 
-    def __lematize_review(self, review):
-        processed_review = self.lemmatize_words(" ".join(review))
-        return processed_review
+    def __lematize_review(self, review: str) -> List[str]:
+        return self.lemmatize_words(" ".join(review))

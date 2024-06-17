@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Set
 from src.utils import stop_words
 import re
 
@@ -10,20 +10,13 @@ class StopWordsClear:
 
     @staticmethod
     def remove_duplicate_characters(text: str) -> str:
-        character_repeat =  re.compile(r'(\w*)(\w)\2(\w*)')
-        match_substitution = r"\1"
-
-        def replace_repeated_chars(old_word):
-            new_word = character_repeat.sub(match_substitution, old_word)
-            while new_word != old_word:
-                old_word = new_word
-                new_word = character_repeat.sub(match_substitution, old_word)
-            return new_word
-
+        character_repeat = re.compile(r'(.)\1{2,}')
+        def replace_repeated_chars(word):
+            return character_repeat.sub(r'\1\1', word)
         return " ".join(replace_repeated_chars(word) if word.isalpha() else word for word in text.split())
 
     @staticmethod
-    def remove_stopwords(tokens: List[str], stopwords: set[str]) -> str:
+    def remove_stopwords(tokens: List[str], stopwords: Set[str]) -> str:
         filtered_tokens = []
         for token in tokens:
             corrected_token = StopWordsClear.remove_duplicate_characters(token)
@@ -44,8 +37,6 @@ class StopWordsClear:
             if text is not None:
                 cleaned_text = StopWordsClear.clean_text(text)
                 tokens = cleaned_text.split()
-                text_without_stopwords = StopWordsClear.remove_stopwords(
-                    tokens, self.stopwords
-                )
+                text_without_stopwords = StopWordsClear.remove_stopwords(tokens, self.stopwords)
                 preprocessed_texts.append(text_without_stopwords)
         return preprocessed_texts
